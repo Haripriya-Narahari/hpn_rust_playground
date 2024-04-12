@@ -11,7 +11,7 @@ fn main() {
 
     let lr = 0.01;
 
-    let iters = 100;
+    let iters = 1000;
     
     for _ in 0..iters {
         let y_pred = &x * slope + &DVector::repeat(x.len(), intercept);
