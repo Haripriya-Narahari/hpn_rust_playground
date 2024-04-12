@@ -11,9 +11,9 @@ fn main() {
 
     let lr = 0.01;
 
-    let iters = 1000;
+    let iters = 100;
     
-    for _ in 0..iters {
+    for _i in 0..iters {
         let y_pred = &x * slope + &DVector::repeat(x.len(), intercept);
 
         let error = &y_pred - &y;
@@ -24,8 +24,10 @@ fn main() {
         slope -= lr * grad;
         intercept -= lr * intercept_grad;
         
-        
+        let se = error.map(|e| (e as f32).powf(2.0));
+        println!("Error: {}", se.sum());
     }
+   
     println!("Slope: {}", slope);
     println!("Intercept: {}", intercept);
 }
